@@ -1,4 +1,4 @@
-# legohus
+# Legohus
 #
 # Kode til løsning af individuel opgave om lego hus.
 #
