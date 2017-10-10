@@ -49,16 +49,15 @@ public class OrderMapper {
     public static User getOrders(User user) throws LegohusException {
         try {
             Connection con = Connector.connection();
-            String role = user.getRole();
-            int user_id = user.getId();
+            boolean isCustomer = user.getRole().equals("customer");
             String SQL;
-            if (role.equals("customer")) {
+            if (isCustomer) {
                 SQL = "SELECT * FROM orders WHERE user_id=?";
             } else {
                 SQL = "SELECT * FROM orders";
             }
             PreparedStatement ps = con.prepareStatement(SQL);
-            if (role.equals("customer")) { 
+            if (isCustomer) { 
                 ps.setInt(1, user.getId());
             }
             ResultSet rs = ps.executeQuery();
