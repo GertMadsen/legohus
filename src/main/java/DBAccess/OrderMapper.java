@@ -81,7 +81,7 @@ public class OrderMapper {
 
     
     /**
-     * this method is used when an employee wants to change the shipping status
+     * This method is used when an employee wants to change the shipping status
      * of an order from false into true.
      * 
      * @param user needed to update the orderMap contained in the user
@@ -105,11 +105,12 @@ public class OrderMapper {
 
     
     /**
-     * this method is needed in order to convert a date from Java Date format
-     * into SQL DATETIME format
+     * This method is needed in order to convert a date from Java date format
+     * into SQL datetime format
      * 
      * @param date is the java date to be converted
-     * @return a String with the date in a format acceptable to SQL
+     * @return a string with the date in a format suitable for
+     * being stored as a SQL datetime field 
      */
     
     private static String fromJavaToSQLDate(Date date) {
