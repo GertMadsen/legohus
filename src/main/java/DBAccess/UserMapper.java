@@ -7,14 +7,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
- The purpose of UserMapper is to...
-
- @author kasper
+ * 
+ The purpose of UserMapper is to transfer the user information
+ * from the database to an user object or the other way around.
+ * 
+ * @author Gert Lehmann Madsen
  */
+
 public class UserMapper {
 
     public static void createUser( User user ) throws LegohusException {

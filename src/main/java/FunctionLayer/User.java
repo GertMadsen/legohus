@@ -1,6 +1,6 @@
 package FunctionLayer;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * The purpose of User is to...
@@ -12,14 +12,14 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.orderList = new ArrayList();
+        this.orderMap = new HashMap();
     }
 
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private final String email;
     private final String password; // Should be hashed and all
     private final String role;
-    private ArrayList<Order> orderList;
+    private HashMap<String, Order> orderMap; 
     
     public String getEmail() {
         return email;
@@ -41,14 +41,18 @@ public class User {
         this.id = id;
     }
 
-    public ArrayList<Order> getOrderList() {
-        return orderList;
+    public HashMap<String, Order> getOrderList() {
+        return orderMap;
     }
 
-    public void addToOrderList(Order order) {
-        this.orderList.add(order);
+    public void putToOrderMap(Order order) {
+        String key = ""+order.getId();
+        this.orderMap.put(key, order);
     }
 
-    
+    public Order getOrderFromMap(int id) {
+        String key = ""+id;
+        return this.orderMap.get(key);
+    }
     
 }
