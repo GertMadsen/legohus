@@ -49,23 +49,19 @@ public class OrderMapper {
     public static User getOrders(User user) throws LegohusException {
         try {
             Connection con = Connector.connection();
-
             String role = user.getRole();
             int user_id = user.getId();
             String SQL;
             if (role.equals("customer")) {
-                SQL = "SELECT * FROM orders "
-                        + "WHERE user_id=?";
+                SQL = "SELECT * FROM orders WHERE user_id=?";
             } else {
                 SQL = "SELECT * FROM orders";
             }
-
             PreparedStatement ps = con.prepareStatement(SQL);
-            if (role.equals("customer")) {
+            if (role.equals("customer")) { 
                 ps.setInt(1, user.getId());
             }
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
                 int id = rs.getInt("id");
                 int cust_id = rs.getInt("user_id");
@@ -76,16 +72,14 @@ public class OrderMapper {
                 boolean shipped = rs.getBoolean("shipped");
                 Order order = new Order(id, cust_id, length, width, height, date, shipped);
                 user.putToOrderMap(order);
-                System.out.println(order.toString());
             }
             return user;
-
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LegohusException(ex.getMessage());
         }
-
     }
 
+    
     /**
      * this method is used when an employee wants to change the shipping status
      * of an order from false into true.
@@ -109,6 +103,7 @@ public class OrderMapper {
         }
     }
 
+    
     /**
      * this method is needed in order to convert a date from Java Date format
      * into SQL DATETIME format
@@ -124,7 +119,10 @@ public class OrderMapper {
         return currentTime;
     }
 
-    public static void main(String[] args) {
+
+
+
+//    public static void main(String[] args) {
 //        Order order = new Order(1, 11, 7, 3);
 //
 //        try {
@@ -164,6 +162,6 @@ public class OrderMapper {
 //        } catch (LegohusException ex) {
 //            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-    }
+//    }
 
 }
