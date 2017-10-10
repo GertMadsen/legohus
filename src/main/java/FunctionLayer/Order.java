@@ -14,9 +14,9 @@ import java.util.Date;
  */
 public class Order {
 
-    public Order(int id, User user, int lenght, int width, int height) {
+    public Order(int id, int user_id, int lenght, int width, int height) {
         this.id = id;
-        this.user = user;
+        this.user_id = user_id;
         this.lenght = lenght;
         this.width = width;
         this.height = height;
@@ -27,7 +27,7 @@ public class Order {
 
 
     private final int id;
-    private final User user;
+    private final int user_id;
     private final int lenght;
     private final int width;
     private final int height;
@@ -38,8 +38,8 @@ public class Order {
         return id;
     }
 
-    public User getUser() {
-        return user;
+    public int getUser_id() {
+        return user_id;
     }
 
     public int getLenght() {
