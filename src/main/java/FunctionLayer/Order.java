@@ -23,7 +23,15 @@ public class Order {
         this.shipped = false;
     }
 
-
+    public Order(int id, int user_id, int length, int width, int height, Date date, boolean shipped) {
+        this.id = id;
+        this.user_id = user_id;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.date = new Date();
+        this.shipped = shipped;
+    }
 
     private int id;
     private final int user_id;
@@ -35,10 +43,6 @@ public class Order {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
     
     public int getUser_id() {
@@ -60,13 +64,26 @@ public class Order {
     public Date getDate() {
         return date;
     }
-
+    
     public boolean isShipped() {
         return shipped;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setShipped(boolean shipped) {
         this.shipped = shipped;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id + ", user_id=" + user_id + ", length=" + length + ", width=" + width + ", height=" + height + ", date=" + date + ", shipped=" + shipped + '}';
+    }
+    
+    
+    
+    
       
 }

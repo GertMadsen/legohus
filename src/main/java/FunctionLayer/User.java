@@ -55,4 +55,11 @@ public class User {
         return this.orderMap.get(key);
     }
     
+    public void updateOrderStatusInMap(int id) {
+        String key = ""+id;
+        Order order = this.orderMap.remove(key);
+        order.setShipped(true);
+        this.orderMap.put(key, order);
+    }
+    
 }
