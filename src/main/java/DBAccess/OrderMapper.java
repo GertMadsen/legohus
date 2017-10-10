@@ -84,8 +84,10 @@ public class OrderMapper {
      * This method is used when an employee wants to change the shipping status
      * of an order from false into true.
      * 
-     * @param user needed to update the orderMap contained in the user
-     * @param id the order id for the order where shipped is to be set as true
+     * @param user is needed in order to update the order in the
+     * orderMap contained in the user entity
+     * @param id the order id for the order where the field shipped is to be set
+     * as true in the database
      * @throws LegohusException
      */
     
