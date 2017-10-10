@@ -13,12 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -28,7 +23,7 @@ import java.util.logging.Logger;
  * @author Gert Lehmann Madsen
  */
 public class OrderMapper {
-
+  
     public static void createOrder(Order order) throws LegohusException {
         try {
             Connection con = Connector.connection();
@@ -91,6 +86,15 @@ public class OrderMapper {
 
     }
 
+    /**
+     * this method is used when an employee wants to change the shipping status
+     * of an order from false into true.
+     * 
+     * @param user needed to update the orderMap contained in the user
+     * @param id the order id for the order where shipped is to be set as true
+     * @throws LegohusException
+     */
+    
     public static void setShipped(User user, int id) throws LegohusException {
         try {
             Connection con = Connector.connection();
@@ -99,12 +103,20 @@ public class OrderMapper {
             ps.setInt(1, id);
             ps.executeUpdate();
             user.updateOrderStatusInMap(id);
- 
+
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LegohusException(ex.getMessage());
         }
     }
 
+    /**
+     * this method is needed in order to convert a date from Java Date format
+     * into SQL DATETIME format
+     * 
+     * @param date is the java date to be converted
+     * @return a String with the date in a format acceptable to SQL
+     */
+    
     private static String fromJavaToSQLDate(Date date) {
         java.text.SimpleDateFormat sdf
                 = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -112,9 +124,6 @@ public class OrderMapper {
         return currentTime;
     }
 
-    
-    
-    
     public static void main(String[] args) {
 //        Order order = new Order(1, 11, 7, 3);
 //
@@ -155,7 +164,6 @@ public class OrderMapper {
 //        } catch (LegohusException ex) {
 //            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-
     }
 
 }
