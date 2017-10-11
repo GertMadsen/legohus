@@ -57,9 +57,8 @@ public class User {
     
     public void updateOrderStatusInMap(int id) {
         String key = ""+id;
-        Order order = this.orderMap.remove(key);
+        Order order = this.orderMap.get(key);
         order.setShipped(true);
-        this.orderMap.put(key, order);
     }
     
 }
