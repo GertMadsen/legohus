@@ -5,6 +5,7 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.InputException;
 import FunctionLayer.LegohusException;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -38,7 +39,12 @@ public class FrontController extends HttpServlet {
         } catch ( LegohusException ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
-        }
+        } catch ( InputException ex ) {
+            request.setAttribute( "error", ex.getMessage() );
+            request.getRequestDispatcher( "WEB-INF/customerpage.jsp" ).forward( request, response );
+        } 
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

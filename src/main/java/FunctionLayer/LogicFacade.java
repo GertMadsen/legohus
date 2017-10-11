@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
 /**
@@ -17,5 +18,14 @@ public class LogicFacade {
         UserMapper.createUser( user );
         return user;
     }
+    
+    public static Order createOrder( User user, int length, int width, int height ) throws LegohusException {
+        Order order = new Order( user.getId(), length, width, height );
+        OrderMapper.createOrder( order );
+        user.putToOrderMap(order);
+        return order;
+    }
+    
+    
 
 }

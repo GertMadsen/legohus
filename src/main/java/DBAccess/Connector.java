@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- The purpose of Connector is to...
-
- @author kasper
+ * The purpose of Connector is to create a connection to the SQL Database Server
+ *
+ * @author Gert Lehmann Madsen
  */
 public class Connector {
 

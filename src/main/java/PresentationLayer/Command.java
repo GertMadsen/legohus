@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.InputException;
 import FunctionLayer.LegohusException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,8 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
+        commands.put( "input", new Input() );
+        
     }
 
     static Command from( HttpServletRequest request ) {
@@ -28,6 +31,6 @@ abstract class Command {
         return commands.getOrDefault(commandName, new UnknownCommand() );
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException;
+    abstract String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException, InputException;
 
 }

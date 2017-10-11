@@ -122,48 +122,4 @@ public class OrderMapper {
     }
 
 
-
-
-//    public static void main(String[] args) {
-//        Order order = new Order(1, 11, 7, 3);
-//
-//        try {
-//            createOrder(order);
-//        } catch (LegohusException ex) {
-//            System.out.println(ex.getMessage());
-//            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-//        User user = null;
-//        try {
-//            user = UserMapper.login("robin@somewhere.com", "batman");
-//        } catch (LegohusException ex) {
-//            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        try {
-//            getOrders(user);
-//        } catch (LegohusException ex) {
-//            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        System.out.println("");
-//        System.out.println("");
-//
-//        try {
-//            setShipped(user, 2);
-//        } catch (LegohusException ex) {
-//            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        try {
-//            user = UserMapper.login("robin@somewhere.com", "batman");
-//        } catch (LegohusException ex) {
-//            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        try {
-//            getOrders(user);
-//        } catch (LegohusException ex) {
-//            Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
 }
