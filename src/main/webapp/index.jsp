@@ -19,7 +19,8 @@
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Welcome to Sem 2</h1>
+        <%@ include file = "/WEB-INF/topmenu.jsp" %>
+
         
         <table>
             <tr><td>Login</td>

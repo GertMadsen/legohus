@@ -5,9 +5,7 @@
  */
 package PresentationLayer;
 
-import Exceptions.InputException;
-import Exceptions.LegohusException;
-import Exceptions.WritingToSQLException;
+import Exceptions.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +40,9 @@ public class FrontController extends HttpServlet {
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         } catch ( InputException ex ) {
             request.setAttribute( "error", ex.getMessage() );
-            request.getRequestDispatcher( "WEB-INF/customerpage.jsp" ).forward( request, response );
+            request.getRequestDispatcher( "/WEB-INF/inputpage.jsp" ).forward( request, response );
+        } catch ( LogoutException ex ) {
+            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         } 
 
 

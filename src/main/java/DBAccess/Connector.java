@@ -13,7 +13,7 @@ public class Connector {
 
     private static final String url = "jdbc:mysql://138.197.189.73:3306/lego";
     private static final String username = "legouser";
-    private static final String password = "lego!106&bab!gplm";
+    private static final String password = "#lego!hus&bab!106#gplm#";
 
     private static Connection singleton;
 

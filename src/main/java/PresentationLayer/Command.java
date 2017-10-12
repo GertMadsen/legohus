@@ -1,8 +1,6 @@
 package PresentationLayer;
 
-import Exceptions.InputException;
-import Exceptions.LegohusException;
-import Exceptions.WritingToSQLException;
+import Exceptions.*;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,9 +17,11 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
         commands.put( "login", new Login() );
+        commands.put( "logout", new Logout() );
         commands.put( "register", new Register() );
-        commands.put( "input", new Input() );
+        commands.put( "input", new InputDimensions() );
         commands.put( "ship", new Ship() );
+        commands.put( "view", new ViewOrders() );
         
     }
 
@@ -33,6 +33,7 @@ abstract class Command {
         return commands.getOrDefault(commandName, new UnknownCommand() );
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException, InputException, WritingToSQLException;
+    abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
+                throws LegohusException, InputException, WritingToSQLException, LogoutException;
 
 }

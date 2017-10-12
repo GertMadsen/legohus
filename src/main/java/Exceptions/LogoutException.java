@@ -9,9 +9,9 @@ package Exceptions;
  *
  * @author GertLehmann
  */
-public class InputException extends Exception {
+public class LogoutException extends Exception {
 
-    public InputException(String msg) {
+    public LogoutException(String msg) {
         super(msg);
     }
     

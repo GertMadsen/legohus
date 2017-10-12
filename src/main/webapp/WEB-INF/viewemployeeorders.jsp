@@ -1,9 +1,10 @@
 <%-- 
-    Document   : customerpage
-    Created on : Aug 22, 2017, 2:33:37 PM
-    Author     : kasper
+    Document   : viewemployeeorders
+    Created on : 12-10-2017, 16:17:57
+    Author     : GertLehmann
 --%>
 
+<%@page import="PresentationLayer.Render"%>
 <%@page import="FunctionLayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,13 +18,27 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-        <title>Customer home page</title>
+        <title>Show All Orders</title>
     </head>
     <body>
-        
         <%@ include file = "topmenu.jsp" %>
-        <h1>Your Orders</h1>
 
+        <h1>All Orders</h1>
+
+        <table class="table table-center table-striped" id="ordertable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Customer</th>
+                    <th>Length</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                    <th>Date</th>
+                    <th>Shipped</th>
+                </tr>
+            </thead>
+            <%=Render.viewAllOrders(user)%>
+        </table>
 
     </body>
 </html>

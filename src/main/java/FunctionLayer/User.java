@@ -60,13 +60,7 @@ public class User {
         Order order = this.orderMap.get(key);
         order.setShipped(true);
     }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + ", orderMap=" + orderMap + '}';
-    }
-    
-    
+   
     
     
 }

@@ -47,4 +47,26 @@ public class Render {
         return output;
     }
 
+    public static String viewUserOrders(User user) {
+
+        String output = "<tbody>";
+        HashMap<String, Order> orderMap = user.getOrderMap();
+
+        for (Order order : orderMap.values()) {
+
+            output += "<tr>"
+                    + "<td>" + order.getId() + "</td>"
+                    + "<td>" + order.getLenght() + "</td>"
+                    + "<td>" + order.getWidth() + "</td>"
+                    + "<td>" + order.getHeight() + "</td>"
+                    + "<td>" + order.getDate() + "</td>"
+                    + "<td>" + order.isShipped() + "</td>";
+            output += "</tr>";
+        }
+
+        output += "</tbody>";
+        return output;
+    }
+
+
 }

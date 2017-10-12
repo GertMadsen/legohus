@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author GertLehmann
  */
-public class Input extends Command {
+public class InputDimensions extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException, InputException, WritingToSQLException {
@@ -36,7 +36,7 @@ public class Input extends Command {
             User user = (User)session.getAttribute("user");
             Order order = LogicFacade.createOrder( user, length, width, height);
             session.setAttribute( "order", order );
-            return user.getRole() + "page";
+            return "view"+ user.getRole() + "orders";
         } else {
             throw new InputException( "All input needs to be larger than 0" );
         }
