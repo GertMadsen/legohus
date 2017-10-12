@@ -24,7 +24,7 @@
 
         <div style="border: solid 1px; height: 450px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
             <h1>Lego House</h1><br>
-            <img src="Pictures/bricks.jpg" alt=""/>
+            <img src="Pictures/bricks_1.jpg" alt=""/>
 
         </div>
 

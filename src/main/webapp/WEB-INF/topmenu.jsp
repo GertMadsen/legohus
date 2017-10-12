@@ -14,6 +14,12 @@
                 <% if (user != null) { %>
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="home">
+                    <input type="submit" value="Home">
+                </form>
+            </li>
+            <li class="navbar-text">
+                <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="view">
                     <input type="submit" value="View Orders">
                 </form>
@@ -31,7 +37,7 @@
         </ul>
         <% if (user != null) {%>
         <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-text"><%=user.getRole()%> : <%=user.getEmail()%> </li>
+            <li style="font-size: 16px" class="navbar-text"><%=user.getRole()%> : <%=user.getEmail()%> </li>
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="logout">

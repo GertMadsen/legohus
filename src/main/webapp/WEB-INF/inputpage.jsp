@@ -20,14 +20,18 @@
     </head>
     <body style="background-image: url(Pictures/pattern.jpg)" > 
         <%@ include file = "topmenu.jsp" %>
-        <div style="border: solid 1px; height: 250px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
-        <h1>Submit new Order</h1>
+        <div style="border: solid 1px; height: 320px; width: 70%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+        
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-5">
+        <h2>Order Lego House</h2>
         <table>
-            <tr><td>Order Lego house:</td>
+            <tr>
                 <td>
                     <form name="order" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="input">
-                        Length:<br>
+                        <br>Length:<br>
                         <input type="text" name="length" value="1">
                         <br>
                         Width:<br>
@@ -35,7 +39,7 @@
                         <br>
                         Height:<br>
                         <input type="text" name="height" value="1">
-                        <br>
+                        <br><br>
                         <input type="submit" value="Submit">
                     </form>
                 </td>
@@ -43,7 +47,14 @@
             </tr>
         </table>
         </div>
-        <div style="border: solid 1px; height: 200px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+        <div class="col-sm-5">
+        <img src="Pictures/bricks_2.jpg" alt=""/>
+        </div>
+        <div class="col-sm-1">
+        </div>
+        
+        </div>
+        <div style="border: solid 1px; height: 100px; width: 70%; margin-top: 40px; margin-bottom: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
         <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>
            <H2>Error!!</h2>

@@ -19,6 +19,7 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "logout", new Logout() );
         commands.put( "register", new Register() );
+        commands.put( "home", new Home() );
         commands.put( "input", new InputDimensions() );
         commands.put( "ship", new Ship() );
         commands.put( "view", new ViewOrders() );
