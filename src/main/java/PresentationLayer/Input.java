@@ -34,7 +34,6 @@ public class Input extends Command {
             HttpSession session = request.getSession();
             User user = (User)session.getAttribute("user");
             Order order = LogicFacade.createOrder( user, length, width, height);
-            session.setAttribute( "user", user );
             session.setAttribute( "order", order );
             return user.getRole() + "page";
         } else {

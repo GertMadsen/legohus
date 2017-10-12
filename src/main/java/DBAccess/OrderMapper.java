@@ -98,7 +98,6 @@ public class OrderMapper {
             ps.setInt(1, id);
             ps.executeUpdate();
             user.updateOrderStatusInMap(id);
-
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LegohusException(ex.getMessage());
         }
