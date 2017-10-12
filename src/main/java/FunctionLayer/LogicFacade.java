@@ -1,7 +1,9 @@
 package FunctionLayer;
 
+import Exceptions.LegohusException;
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
+import Exceptions.WritingToSQLException;
 
 /**
  * The purpose of LogicFacade is to...
@@ -13,13 +15,13 @@ public class LogicFacade {
         return UserMapper.login( email, password );
     } 
 
-    public static User createUser( String email, String password ) throws LegohusException {
+    public static User createUser( String email, String password ) throws LegohusException, WritingToSQLException {
         User user = new User(email, password, "customer");
         UserMapper.createUser( user );
         return user;
     }
     
-    public static Order createOrder( User user, int length, int width, int height ) throws LegohusException {
+    public static Order createOrder( User user, int length, int width, int height ) throws LegohusException, WritingToSQLException {
         Order order = new Order( user.getId(), length, width, height );
         OrderMapper.createOrder( order );
         user.putToOrderMap(order);

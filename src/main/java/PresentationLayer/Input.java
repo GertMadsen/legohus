@@ -5,8 +5,9 @@
  */
 package PresentationLayer;
 
-import FunctionLayer.InputException;
-import FunctionLayer.LegohusException;
+import Exceptions.InputException;
+import Exceptions.LegohusException;
+import Exceptions.WritingToSQLException;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.User;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
 public class Input extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException, InputException {
+    String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException, InputException, WritingToSQLException {
         int length, width, height;
         try {
         length = Integer.parseInt(request.getParameter( "length" ));

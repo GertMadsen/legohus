@@ -5,7 +5,8 @@
  */
 package DBAccess;
 
-import FunctionLayer.LegohusException;
+import Exceptions.LegohusException;
+import Exceptions.WritingToSQLException;
 import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.sql.Connection;
@@ -24,7 +25,7 @@ import java.util.Date;
  */
 public class OrderMapper {
   
-    public static void createOrder(Order order) throws LegohusException {
+    public static void createOrder(Order order) throws LegohusException, WritingToSQLException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orders (user_id, length, width, height, date, shipped ) VALUES (?, ?, ?, ?, ?, ?)";
@@ -42,7 +43,7 @@ public class OrderMapper {
             int id = ids.getInt(1);
             order.setId(id);
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LegohusException(ex.getMessage());
+            throw new WritingToSQLException(ex.getMessage());
         }
     }
 

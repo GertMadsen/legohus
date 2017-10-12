@@ -1,6 +1,7 @@
 package DBAccess;
 
-import FunctionLayer.LegohusException;
+import Exceptions.LegohusException;
+import Exceptions.WritingToSQLException;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ import java.sql.Statement;
 
 public class UserMapper {
 
-    public static void createUser( User user ) throws LegohusException {
+    public static void createUser( User user ) throws LegohusException, WritingToSQLException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
@@ -33,7 +34,7 @@ public class UserMapper {
             int id = ids.getInt( 1 );
             user.setId( id );
         } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LegohusException( ex.getMessage() );
+            throw new WritingToSQLException( ex.getMessage() );
         }
     }
 
