@@ -30,7 +30,7 @@ public class OrderMapper {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orders (user_id, length, width, height, date, shipped ) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, order.getUser_id());
+            ps.setInt(1, order.getUser().getId());
             ps.setInt(2, order.getLenght());
             ps.setInt(3, order.getWidth());
             ps.setInt(4, order.getHeight());
@@ -65,12 +65,13 @@ public class OrderMapper {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 int cust_id = rs.getInt("user_id");
+                User cust = UserMapper.getUser(cust_id);
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 Date date = rs.getDate("date");
                 boolean shipped = rs.getBoolean("shipped");
-                Order order = new Order(id, cust_id, length, width, height, date, shipped);
+                Order order = new Order(id, cust, length, width, height, date, shipped);
                 user.putToOrderMap(order);
             }
             return user;
@@ -91,14 +92,13 @@ public class OrderMapper {
      * @throws LegohusException
      */
     
-    public static void setShipped(User user, int id) throws LegohusException {
+    public static void setShipped(int id) throws LegohusException {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE orders SET shipped = 1 WHERE id = ?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, id);
             ps.executeUpdate();
-            user.updateOrderStatusInMap(id);
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LegohusException(ex.getMessage());
         }

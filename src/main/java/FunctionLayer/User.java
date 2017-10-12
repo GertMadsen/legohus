@@ -15,7 +15,7 @@ public class User {
         this.orderMap = new HashMap();
     }
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
+    private int id; 
     private final String email;
     private final String password; // Should be hashed and all
     private final String role;
@@ -41,7 +41,7 @@ public class User {
         this.id = id;
     }
 
-    public HashMap<String, Order> getOrderList() {
+    public HashMap<String, Order> getOrderMap() {
         return orderMap;
     }
 
@@ -60,5 +60,13 @@ public class User {
         Order order = this.orderMap.get(key);
         order.setShipped(true);
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + ", orderMap=" + orderMap + '}';
+    }
+    
+    
+    
     
 }

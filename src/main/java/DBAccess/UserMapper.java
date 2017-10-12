@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -52,6 +54,7 @@ public class UserMapper {
                 int id = rs.getInt( "id" );
                 User user = new User( email, password, role );
                 user.setId( id );
+                OrderMapper.getOrders(user);
                 return user;
             } else {
                 throw new LegohusException( "Could not validate user" );
@@ -60,5 +63,29 @@ public class UserMapper {
             throw new LegohusException(ex.getMessage());
         }
     }
+    
+    public static User getUser( int id ) throws LegohusException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT email, password, role FROM users "
+                    + "WHERE id=?";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setInt( 1, id );
+            ResultSet rs = ps.executeQuery();
+            if ( rs.next() ) {
+                String email = rs.getString( "email" );
+                String password = rs.getString( "password" );
+                String role = rs.getString( "role" );
+                User user = new User( email, password, role );
+                user.setId( id );
+                return user;
+            } else {
+                throw new LegohusException( "User does not exist" );
+            }
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new LegohusException(ex.getMessage());
+        }
+    }
+    
 
 }

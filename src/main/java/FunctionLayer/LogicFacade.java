@@ -22,12 +22,15 @@ public class LogicFacade {
     }
     
     public static Order createOrder( User user, int length, int width, int height ) throws LegohusException, WritingToSQLException {
-        Order order = new Order( user.getId(), length, width, height );
+        Order order = new Order( user, length, width, height );
         OrderMapper.createOrder( order );
         user.putToOrderMap(order);
         return order;
     }
     
-    
+    public static void shipOrder(User user, int id) throws LegohusException {
+        OrderMapper.setShipped(id);
+        user.updateOrderStatusInMap(id);
+    }
 
 }

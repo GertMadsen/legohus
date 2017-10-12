@@ -4,6 +4,8 @@
     Author     : kasper
 --%>
 
+<%@page import="FunctionLayer.User"%>
+<%@page import="PresentationLayer.Render"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,8 +22,30 @@
         <title>Employee home page</title>
     </head>
     <body>
-
+        <%User user = (User) (session.getAttribute("user"));%>
+        
         <h1>Hello <%=request.getParameter( "email")%> </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
+        
+               <table class="table table-center table-striped" id="ordertable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>User</th>
+                        <th>Length</th>
+                        <th>Width</th>
+                        <th>Height</th>
+                        <th>Date</th>
+                        <th>Shipped</th>
+                    </tr>
+                </thead>
+
+                <%=Render.viewAllOrders(user)%>
+                
+       
+
+            </table>
+
+      
     </body>
 </html>
