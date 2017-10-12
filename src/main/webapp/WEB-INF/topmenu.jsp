@@ -18,7 +18,15 @@
                     <input type="submit" value="View Orders">
                 </form>
             </li>
-            <% } %>
+            <% if (user.getRole().equals("customer")) { %>
+            
+            <li class="navbar-text">
+                <form name="choice" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="house">
+                    <input type="submit" value="New House">
+                </form>
+            </li>
+            <% }} %>
         </ul>
         <% if (user != null) {%>
         <ul class="nav navbar-nav navbar-right">

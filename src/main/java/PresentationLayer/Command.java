@@ -22,7 +22,7 @@ abstract class Command {
         commands.put( "input", new InputDimensions() );
         commands.put( "ship", new Ship() );
         commands.put( "view", new ViewOrders() );
-        
+        commands.put( "house", new House() );
     }
 
     static Command from( HttpServletRequest request ) {

@@ -16,15 +16,11 @@ import javax.servlet.http.HttpSession;
  *
  * @author GertLehmann
  */
-public class Ship extends Command {
+public class House extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LegohusException {
-        int oid = Integer.parseInt(request.getParameter("oid"));
-        HttpSession session = request.getSession();
-        User user = (User)session.getAttribute("user");
-        LogicFacade.shipOrder(user, oid);
-        return "view" + user.getRole() + "orders";
+        return "inputpage";
     }
 
 }
