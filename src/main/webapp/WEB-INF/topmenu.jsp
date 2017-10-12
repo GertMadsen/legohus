@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li style="font-size: 24px" class="navbar-text">Lego House</li>
-            <% if (user != null) { %>
+                <% if (user != null) { %>
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="view">
@@ -19,14 +19,15 @@
                 </form>
             </li>
             <% if (user.getRole().equals("customer")) { %>
-            
+
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="house">
                     <input type="submit" value="New House">
                 </form>
             </li>
-            <% }} %>
+            <% }
+                } %>
         </ul>
         <% if (user != null) {%>
         <ul class="nav navbar-nav navbar-right">

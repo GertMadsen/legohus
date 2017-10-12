@@ -21,7 +21,6 @@ public class Render {
         HashMap<String, Order> orderMap = user.getOrderMap();
 
         for (Order order : orderMap.values()) {
-
             output += "<tr>"
                     + "<td>" + order.getId() + "</td>"
                     + "<td>" + order.getUser().getEmail() + "</td>"
@@ -53,7 +52,6 @@ public class Render {
         HashMap<String, Order> orderMap = user.getOrderMap();
 
         for (Order order : orderMap.values()) {
-
             output += "<tr>"
                     + "<td>" + order.getId() + "</td>"
                     + "<td>" + order.getLenght() + "</td>"

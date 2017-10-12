@@ -15,50 +15,59 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <title>Welcome page</title>
     </head>
-    <body>
+
+    <body style="background-image: url(Pictures/pattern.jpg)" >
         <%@ include file = "/WEB-INF/topmenu.jsp" %>
 
-        
-        <table>
-            <tr><td>Login</td>
-                <td>
-                    <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="login">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-                <td>Or Register</td>
-                <td>
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-            </tr>
-        </table>
-        <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { %>
-           <H2>Error!!</h2>
-           <p><%= error %>
-        <% }
-        %>
+        <div style="border: solid 1px; height: 250px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+
+            <table>
+                <tr><td>Login</td>
+                    <td>
+                        <form name="login" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="login">
+                            Email:<br>
+                            <input type="text" name="email" value="someone@nowhere.com">
+                            <br>
+                            Password:<br>
+                            <input type="password" name="password" value="sesam">
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </td>
+                    <td>Or Register</td>
+                    <td>
+                        <form name="register" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="register">
+                            Email:<br>
+                            <input type="text" name="email" value="someone@nowhere.com">
+                            <br>
+                            Password:<br>
+                            <input type="password" name="password1" value="sesam">
+                            <br>
+                            Retype Password:<br>
+                            <input type="password" name="password2" value="sesam">
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="border: solid 1px; height: 200px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+
+
+            <% String error = (String) request.getAttribute("error");
+                if (error != null) {%>
+            <H2>Error!!</h2>
+            <p><%= error%>
+                <% }
+                %>
+
+        </div>
+
+
     </body>
 </html>

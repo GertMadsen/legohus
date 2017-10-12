@@ -16,13 +16,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
         <title>Employee home page</title>
     </head>
-    <body>
+    <body style="background-image: url(Pictures/pattern.jpg)" > 
         <%@ include file = "topmenu.jsp" %>
-        <h1>Customer Orders</h1>
+        <div style="border: solid 1px; height: 450px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+            <h1>Employee Site</h1><br>
+            <img src="Pictures/shipped.jpg" alt=""/>
 
+        </div>
 
 
     </body>

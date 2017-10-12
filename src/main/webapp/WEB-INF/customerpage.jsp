@@ -16,14 +16,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
         <title>Customer home page</title>
     </head>
-    <body>
-        
-        <%@ include file = "topmenu.jsp" %>
-        <h1>Your Orders</h1>
+    <body style="background-image: url(Pictures/pattern.jpg)" > 
 
+        <%@ include file = "topmenu.jsp" %>
+
+        <div style="border: solid 1px; height: 450px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+            <h1>Lego House</h1><br>
+            <img src="Pictures/bricks.jpg" alt=""/>
+
+        </div>
 
     </body>
 </html>
