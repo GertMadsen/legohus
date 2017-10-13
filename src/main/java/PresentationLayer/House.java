@@ -17,7 +17,7 @@ public class House extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LegohusException {
-        return "inputpage";
+        return "WEB-INF/inputpage";
     }
 
 }

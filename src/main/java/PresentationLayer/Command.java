@@ -35,6 +35,6 @@ abstract class Command {
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
-                throws LegohusException, InputException, WritingToSQLException, LogoutException;
+                throws LegohusException, InputException, WritingToSQLException;
 
 }

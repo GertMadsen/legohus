@@ -24,7 +24,7 @@ public class Ship extends Command {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         LogicFacade.shipOrder(user, oid);
-        return "view" + user.getRole() + "orders";
+        return "WEB-INF/view" + user.getRole() + "orders";
     }
 
 }

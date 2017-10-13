@@ -7,6 +7,7 @@ package PresentationLayer;
 
 import FunctionLayer.Order;
 import FunctionLayer.User;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -21,16 +22,17 @@ public class Render {
         HashMap<String, Order> orderMap = user.getOrderMap();
 
         for (Order order : orderMap.values()) {
+
             output += "<tr>"
                     + "<td>" + order.getId() + "</td>"
                     + "<td>" + order.getUser().getEmail() + "</td>"
-                    + "<td>" + order.getLenght() + "</td>"
+                    + "<td>" + order.getLength() + "</td>"
                     + "<td>" + order.getWidth() + "</td>"
                     + "<td>" + order.getHeight() + "</td>"
                     + "<td>" + order.getDate() + "</td>";
 
             if (order.isShipped()) {
-                output += "<td>Shipped</td>";
+                output += "<td>Shipped : "+ order.getShippingDate() +"</td>";
             } else {
                 output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
                 output += "<input type=\"hidden\" name=\"command\" value=\"ship\">";
@@ -54,11 +56,15 @@ public class Render {
         for (Order order : orderMap.values()) {
             output += "<tr>"
                     + "<td>" + order.getId() + "</td>"
-                    + "<td>" + order.getLenght() + "</td>"
+                    + "<td>" + order.getLength() + "</td>"
                     + "<td>" + order.getWidth() + "</td>"
                     + "<td>" + order.getHeight() + "</td>"
-                    + "<td>" + order.getDate() + "</td>"
-                    + "<td>" + order.isShipped() + "</td>";
+                    + "<td>" + order.getDate() + "</td>";
+         if (order.isShipped()) {
+                output += "<td>Shipped : "+ order.getShippingDate() +"</td>";
+            } else {   
+                output += "<td>Not Shipped Yet</td>";
+         }        
             output += "</tr>";
         }
 

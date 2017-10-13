@@ -36,7 +36,7 @@ public class InputDimensions extends Command {
             User user = (User)session.getAttribute("user");
             Order order = LogicFacade.createOrder( user, length, width, height);
             session.setAttribute( "order", order );
-            return "view"+ user.getRole() + "orders";
+            return "WEB-INF/view"+ user.getRole() + "orders";
         } else {
             throw new InputException( "All input needs to be larger than 0" );
         }

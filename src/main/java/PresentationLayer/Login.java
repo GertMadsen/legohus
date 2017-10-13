@@ -36,7 +36,7 @@ public class Login extends Command {
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
         
-        return user.getRole() + "page";
+        return "WEB-INF/" + user.getRole() + "page";
     }
 
 }

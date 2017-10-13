@@ -25,28 +25,30 @@ import java.util.Date;
  */
 public class OrderMapper {
   
-    public static void createOrder(Order order) throws LegohusException, WritingToSQLException {
+    public static Order createOrder(Order order) throws LegohusException, WritingToSQLException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO orders (user_id, length, width, height, date, shipped ) VALUES (?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO orders (user_id, length, width, height, shipped ) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getUser().getId());
-            ps.setInt(2, order.getLenght());
+            ps.setInt(2, order.getLength());
             ps.setInt(3, order.getWidth());
             ps.setInt(4, order.getHeight());
-            String dateStr = fromJavaToSQLDate(order.getDate());
-            ps.setString(5, dateStr);
-            ps.setBoolean(6, order.isShipped());
+//            String dateStr = fromJavaToSQLDate(order.getDate());
+//            ps.setString(5, dateStr);
+            ps.setBoolean(5, order.isShipped());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
             int id = ids.getInt(1);
             order.setId(id);
+            return getOrderDate(order);
         } catch (SQLException | ClassNotFoundException ex) {
             throw new WritingToSQLException(ex.getMessage());
         }
     }
-
+    
+    
     public static User getOrders(User user) throws LegohusException {
         try {
             Connection con = Connector.connection();
@@ -70,8 +72,9 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 Date date = rs.getDate("date");
+                Date shippingDate = rs.getDate("shipping_date");
                 boolean shipped = rs.getBoolean("shipped");
-                Order order = new Order(id, cust, length, width, height, date, shipped);
+                Order order = new Order(id, cust, length, width, height, date, shippingDate, shipped);
                 user.putToOrderMap(order);
             }
             return user;
@@ -80,23 +83,37 @@ public class OrderMapper {
         }
     }
 
+    public static Order getOrderDate(Order order) throws LegohusException {
+        try {
+            
+            Connection con = Connector.connection();
+            String SQL = "SELECT date, shipping_date FROM orders WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, order.getId());
+            ResultSet rs = ps.executeQuery();           
+            while (rs.next()) {
+                Date date = rs.getDate("date");
+                Date shippingDate = rs.getDate("shipping_date");
+                order.setDate(date);
+                order.setShippingDate(shippingDate);
+            }
+            return order;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LegohusException(ex.getMessage());
+        }
+    }
     
-    /**
-     * This method is used when an employee wants to change the shipping status
-     * of an order from false into true.
-     * 
-     * @param user is needed in order to update the order in the
-     * orderMap contained in the user entity
-     * @param id the order id for the order where the field shipped is to be set
-     * as true in the database
-     * @throws LegohusException
-     */
+
     
     public static void setShipped(int id) throws LegohusException {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE orders SET shipped = 1 WHERE id = ?";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            SQL = "UPDATE orders SET shipping_date = CURRENT_TIMESTAMP WHERE id = ?";
+            ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -105,21 +122,21 @@ public class OrderMapper {
     }
 
     
-    /**
-     * This method is needed in order to convert a date from Java date format
-     * into SQL datetime format
-     * 
-     * @param date is the java date to be converted
-     * @return a string with the date in a format suitable for
-     * being stored as a SQL datetime field 
-     */
-    
-    private static String fromJavaToSQLDate(Date date) {
-        java.text.SimpleDateFormat sdf
-                = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String currentTime = sdf.format(date);
-        return currentTime;
-    }
+//    /**
+//     * This method is needed in order to convert a date from Java date format
+//     * into SQL datetime format
+//     * 
+//     * @param date is the java date to be converted
+//     * @return a string with the date in a format suitable for
+//     * being stored as a SQL datetime field 
+//     */
+//    
+//    private static String fromJavaToSQLDate(Date date) {
+//        java.text.SimpleDateFormat sdf
+//                = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String currentTime = sdf.format(date);
+//        return currentTime;
+//    }
 
 
 }

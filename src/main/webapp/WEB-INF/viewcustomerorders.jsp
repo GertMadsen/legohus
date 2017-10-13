@@ -22,7 +22,7 @@
     </head>
     <body style="background-image: url(Pictures/pattern.jpg)" > 
         <%@ include file = "topmenu.jsp" %>
-        <div style="border: solid 1px; height: 450px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+        <div style="border: solid 1px; width: 80%; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
 
         <h1>Orders</h1>
 

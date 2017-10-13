@@ -21,7 +21,7 @@ public class Home extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LegohusException {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
-        return user.getRole() + "page";
+        return "WEB-INF/" + user.getRole() + "page";
     }
 
 }

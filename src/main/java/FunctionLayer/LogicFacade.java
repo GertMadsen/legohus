@@ -24,7 +24,7 @@ public class LogicFacade {
     public static Order createOrder( User user, int length, int width, int height ) throws LegohusException, WritingToSQLException {
         Order order = new Order( user, length, width, height );
         OrderMapper.createOrder( order );
-        user.putToOrderMap(order);
+        user.putToOrderMap( order );
         return order;
     }
     

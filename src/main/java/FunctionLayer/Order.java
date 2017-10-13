@@ -20,16 +20,18 @@ public class Order {
         this.width = width;
         this.height = height;
         this.date = new Date();
+        this.shippingDate = new Date();
         this.shipped = false;
     }
 
-    public Order(int id, User user, int length, int width, int height, Date date, boolean shipped) {
+    public Order(int id, User user, int length, int width, int height, Date date, Date shippingDate, boolean shipped) {
         this.id = id;
         this.user = user;
         this.length = length;
         this.width = width;
         this.height = height;
         this.date = date;
+        this.shippingDate = shippingDate;
         this.shipped = shipped;
     }
 
@@ -38,9 +40,10 @@ public class Order {
     private final int length;
     private final int width;
     private final int height;
-    private final Date date;
+    private Date date;
+    private Date shippingDate;
     private boolean shipped;
-
+    
     public int getId() {
         return id;
     }
@@ -49,7 +52,7 @@ public class Order {
         return user;
     }
 
-    public int getLenght() {
+    public int getLength() {
         return length;
     }
 
@@ -64,11 +67,23 @@ public class Order {
     public Date getDate() {
         return date;
     }
-    
+
+    public Date getShippingDate() {
+        return shippingDate;
+    }
+        
     public boolean isShipped() {
         return shipped;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setShippingDate(Date shippingDate) {
+        this.shippingDate = shippingDate;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }

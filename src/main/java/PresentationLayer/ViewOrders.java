@@ -23,7 +23,7 @@ public class ViewOrders  extends Command {
     String execute( HttpServletRequest request, HttpServletResponse response ) {
             HttpSession session = request.getSession();
             User user = (User)session.getAttribute("user");
-            return "view"+ user.getRole() + "orders";
+            return "WEB-INF/view"+ user.getRole() + "orders";
     }
         
 }
