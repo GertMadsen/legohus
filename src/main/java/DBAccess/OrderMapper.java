@@ -103,7 +103,6 @@ public class OrderMapper {
         }
     }
     
-
     
     public static void setShipped(int id) throws LegohusException {
         try {

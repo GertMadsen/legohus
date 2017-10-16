@@ -7,8 +7,7 @@ package PresentationLayer;
 
 import FunctionLayer.Order;
 import FunctionLayer.User;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  *
@@ -19,7 +18,7 @@ public class Render {
     public static String viewAllOrders(User user) {
 
         String output = "<tbody>";
-        HashMap<String, Order> orderMap = user.getOrderMap();
+        TreeMap<String, Order> orderMap = user.getOrderMap();
 
         for (Order order : orderMap.values()) {
 
@@ -51,7 +50,7 @@ public class Render {
     public static String viewUserOrders(User user) {
 
         String output = "<tbody>";
-        HashMap<String, Order> orderMap = user.getOrderMap();
+        TreeMap<String, Order> orderMap = user.getOrderMap();
 
         for (Order order : orderMap.values()) {
             output += "<tr>"

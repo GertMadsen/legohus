@@ -1,6 +1,6 @@
 package FunctionLayer;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * The purpose of User is to...
@@ -12,14 +12,14 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.orderMap = new HashMap();
+        this.orderMap = new TreeMap();
     }
 
     private int id; 
     private final String email;
     private final String password; // Should be hashed and all
     private final String role;
-    private HashMap<String, Order> orderMap; 
+    private TreeMap<String, Order> orderMap; 
     
     public String getEmail() {
         return email;
@@ -41,7 +41,7 @@ public class User {
         this.id = id;
     }
 
-    public HashMap<String, Order> getOrderMap() {
+    public TreeMap<String, Order> getOrderMap() {
         return orderMap;
     }
 
