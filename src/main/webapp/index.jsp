@@ -21,7 +21,7 @@
             body {
                 background-image: url(Pictures/pattern.png)
             }
-            
+
             .frames {
                 border: solid 2px;
                 border-color: goldenrod;
@@ -31,14 +31,14 @@
                 padding-top: 20px;
 
             }
-            
+
             #login {
                 height: 250px; 
                 width: 420px; 
                 margin-top: 40px;
                 padding-left: 30px;
             }
-            
+
             #error {
                 height: 150px; 
                 width: 420px; 
@@ -56,14 +56,14 @@
         <div class="frames" id="login" >
 
             <table>
-                            <thead>
-                <tr>
-                    <th>Login</th>
-                    <th>Or Register</th>
-                    
-                </tr>
-            </thead>
-                
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>Or Register</th>
+
+                    </tr>
+                </thead>
+
                 <tr>
                     <td>
                         <form name="login" action="FrontController" method="POST">
@@ -96,13 +96,13 @@
             </table>
         </div>
 
-            <% String error = (String) request.getAttribute("error");
+        <% String error = (String) request.getAttribute("error");
                 if (error != null) {%>
         <div class="frames" id="error" >
             <H2>Error!!</h2>
             <p><%= error%>
         </div>
-                <% }
-                %>
+        <% }
+        %>
     </body>
 </html>

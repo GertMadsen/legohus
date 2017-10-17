@@ -17,12 +17,12 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Customer home page</title>
-        
-                <style>
+
+        <style>
             body {
                 background-image: url(Pictures/pattern.png)
             }
-            
+
             .frames {
                 border: solid 2px;
                 border-color: goldenrod;
@@ -32,17 +32,17 @@
                 padding-top: 20px;
 
             }
-            
+
             #customer {
                 height: 450px; 
                 width: 800px; 
                 margin-top: 40px;
                 padding-left: 20px;
             }
-            
+
 
         </style>
-        
+
     </head>
     <body> 
 

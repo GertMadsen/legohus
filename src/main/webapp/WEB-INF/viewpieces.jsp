@@ -36,19 +36,14 @@
 
             }
             
-            #login {
-                height: 250px; 
-                width: 420px; 
+            #pieces { 
+                width: 800px; 
                 margin-top: 40px;
-                padding-left: 30px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 20px;
             }
             
-            #error {
-                height: 150px; 
-                width: 420px; 
-                margin-top: 40px;
-                text-align: center;
-            }
 
         </style>
         
@@ -61,9 +56,9 @@
             Order order = user.getOrderFromMap(oid);
         %>
         
-        <div style="border: solid 1px; width: 80%; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+        <div class="frames" id="pieces">
 
-        <h1>Pieces used to build Lego </h1>
+        <h1>Pieces needed to build Lego house:</h1>
 
         <table class="table table-center table-striped" id="ordertable">
             <thead>

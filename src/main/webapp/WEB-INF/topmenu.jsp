@@ -10,7 +10,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li style="font-size: 24px" class="navbar-text">Lego House</li>
+            <li style="font-size: 28px; color: goldenrod;" class="navbar-text">Lego House</li>
                 <% if (user != null) { %>
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
@@ -37,7 +37,7 @@
         </ul>
         <% if (user != null) {%>
         <ul class="nav navbar-nav navbar-right">
-            <li style="font-size: 16px" class="navbar-text"><%=user.getRole()%> : <%=user.getEmail()%> </li>
+            <li style="font-size: 16px; color: goldenrod;" class="navbar-text"><%=user.getRole()%> : <%=user.getEmail()%> </li>
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="logout">
