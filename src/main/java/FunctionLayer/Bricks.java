@@ -34,10 +34,13 @@ public class Bricks {
         return one;
     }
     
-    public void addBricks(int side) {
-        this.four = side/4;
-        this.two = (side%4)/2;
-        this.one = (side%4)%2;       
+    public void addBricks(int four, int two, int one) {
+        this.four += four;
+        this.two += two;
+        this.one += one;       
     }
+
+
+
     
 }

@@ -4,7 +4,6 @@
     Author     : GertLehmann
 --%>
 
-<%@page import="java.util.HashMap"%>
 <%@page import="FunctionLayer.Order"%>
 <%@page import="PresentationLayer.Render"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -35,6 +34,7 @@
                     <th>Height</th>
                     <th>Date</th>
                     <th>Shipped</th>
+                    <th>Pieces used</th>
                 </tr>
             </thead>
             <%=Render.viewUserOrders(user)%>

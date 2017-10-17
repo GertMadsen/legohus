@@ -31,14 +31,15 @@ public class InputDimensions extends Command {
         } catch (NumberFormatException ex){
             throw new InputException( "Use Integers as input" );
         }
-        if ( length > 0 & width > 0 & height > 0) {
+        boolean valid = LogicFacade.validateDimensions(length, width, height);
+        if ( valid ) {
             HttpSession session = request.getSession();
             User user = (User)session.getAttribute("user");
             Order order = LogicFacade.createOrder( user, length, width, height);
             session.setAttribute( "order", order );
             return "WEB-INF/view"+ user.getRole() + "orders";
         } else {
-            throw new InputException( "All input needs to be larger than 0" );
+            throw new InputException( "Not a valid input." );
         }
     }
     

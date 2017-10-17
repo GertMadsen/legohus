@@ -5,6 +5,7 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.Bricks;
 import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.util.TreeMap;
@@ -31,7 +32,7 @@ public class Render {
                     + "<td>" + order.getDate() + "</td>";
 
             if (order.isShipped()) {
-                output += "<td>Shipped : "+ order.getShippingDate() +"</td>";
+                output += "<td>Shipped : " + order.getShippingDate() + "</td>";
             } else {
                 output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
                 output += "<input type=\"hidden\" name=\"command\" value=\"ship\">";
@@ -40,6 +41,12 @@ public class Render {
                 output += "</form></td>";
             }
 
+            output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
+            output += "<input type=\"hidden\" name=\"command\" value=\"pieces\">";
+            output += "<input type=\"hidden\" name=\"oid\" value=\"" + order.getId() + "\">";
+            output += "<input type=\"submit\" value=\"Show pieces used\">";
+            output += "</form></td>";
+            
             output += "</tr>";
         }
 
@@ -59,14 +66,36 @@ public class Render {
                     + "<td>" + order.getWidth() + "</td>"
                     + "<td>" + order.getHeight() + "</td>"
                     + "<td>" + order.getDate() + "</td>";
-         if (order.isShipped()) {
-                output += "<td>Shipped : "+ order.getShippingDate() +"</td>";
-            } else {   
+            if (order.isShipped()) {
+                output += "<td>Shipped : " + order.getShippingDate() + "</td>";
+            } else {
                 output += "<td>Not Shipped Yet</td>";
-         }        
+            }
+
+            output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
+            output += "<input type=\"hidden\" name=\"command\" value=\"pieces\">";
+            output += "<input type=\"hidden\" name=\"oid\" value=\"" + order.getId() + "\">";
+            output += "<input type=\"submit\" value=\"Show pieces used\">";
+            output += "</form></td>";
+
             output += "</tr>";
         }
 
+        output += "</tbody>";
+        return output;
+    }
+
+    public static String viewPieces(Bricks bricksUsed, Order order) {
+
+        String output = "<tbody>";
+            output += "<tr>"
+                    + "<td>" + order.getLength() + "</td>"
+                    + "<td>" + order.getWidth() + "</td>"
+                    + "<td>" + order.getHeight() + "</td>"
+                    + "<td>" + bricksUsed.getFour() + "</td>"
+                    + "<td>" + bricksUsed.getTwo() + "</td>"
+                    + "<td>" + bricksUsed.getOne() + "</td>";
+            output += "</tr>";
         output += "</tbody>";
         return output;
     }
