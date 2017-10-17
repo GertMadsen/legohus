@@ -14,6 +14,16 @@ package FunctionLayer;
  */
 public class BrickCalculator {
 
+    /**
+     * In odd layers bricks will fill out all the length and
+     * hereafter the space between these walls are filled with bricks
+     * In even layers bricks will fill out all the width and
+     * then fill out the rest of the length side.
+     * @param length the length of the house in dots.
+     * @param width the width of the house in dots.
+     * @param height the height of the house in bricks.
+     * @return a brick object containing the summed up bricks.
+     */
     public Bricks calcFromDimensions(int length, int width, int height) {
         Bricks bricksCalculated = new Bricks();
         int four, two, one;

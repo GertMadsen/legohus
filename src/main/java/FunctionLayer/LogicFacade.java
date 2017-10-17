@@ -6,9 +6,10 @@ import DBAccess.UserMapper;
 import Exceptions.WritingToSQLException;
 
 /**
- * The purpose of LogicFacade is to...
+ * The purpose of LogicFacade is to act as a facade
+ * between the Presentation layer and the other layers.
  *
- * @author kasper
+ * @author Gert Lehmann Madsen
  */
 public class LogicFacade {
 
@@ -33,7 +34,16 @@ public class LogicFacade {
         OrderMapper.setShipped(id);
         user.updateOrderStatusInMap(id);
     }
-
+    
+    /**
+     * Validate if the input made by the customer 
+     * meets the requirements for a Lego house.
+     * 
+     * @param length the length of the house - at least 4 dots
+     * @param width the width of the house - at least 4 dots
+     * @param height the height of the house - at least 1 brick
+     * @return true or false
+     */
     public static boolean validateDimensions(int length, int width, int height) {
         boolean result;
         result = (height > 0) & (length > 3) & (width > 3);
