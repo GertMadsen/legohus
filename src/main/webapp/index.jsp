@@ -16,58 +16,93 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Welcome page</title>
+
+        <style>
+            body {
+                background-image: url(Pictures/pattern.png)
+            }
+            
+            .frames {
+                border: solid 2px;
+                border-color: goldenrod;
+                background-color: #FFFFFF;
+                margin-left: auto; 
+                margin-right: auto;
+                padding-top: 20px;
+
+            }
+            
+            #login {
+                height: 250px; 
+                width: 420px; 
+                margin-top: 40px;
+                padding-left: 30px;
+            }
+            
+            #error {
+                height: 150px; 
+                width: 420px; 
+                margin-top: 40px;
+                text-align: center;
+            }
+
+        </style>
+
     </head>
 
-    <body style="background-image: url(Pictures/pattern.jpg)" >
+    <body>
         <%@ include file = "/WEB-INF/topmenu.jsp" %>
 
-        <div style="border: solid 1px; height: 250px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
+        <div class="frames" id="login" >
 
             <table>
-                <tr><td>Login</td>
+                            <thead>
+                <tr>
+                    <th>Login</th>
+                    <th>Or Register</th>
+                    
+                </tr>
+            </thead>
+                
+                <tr>
                     <td>
                         <form name="login" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="login">
                             Email:<br>
-                            <input type="text" name="email" value="someone@nowhere.com">
+                            <input type="text" name="email" value="john@doe.com">
                             <br>
                             Password:<br>
                             <input type="password" name="password" value="sesam">
-                            <br>
+                            <br><br>
                             <input type="submit" value="Submit">
                         </form>
                     </td>
-                    <td>Or Register</td>
                     <td>
                         <form name="register" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="register">
                             Email:<br>
-                            <input type="text" name="email" value="someone@nowhere.com">
+                            <input type="text" name="email" value="john@doe.com">
                             <br>
                             Password:<br>
                             <input type="password" name="password1" value="sesam">
                             <br>
                             Retype Password:<br>
                             <input type="password" name="password2" value="sesam">
-                            <br>
+                            <br><br>
                             <input type="submit" value="Submit">
                         </form>
                     </td>
                 </tr>
             </table>
         </div>
-        <div style="border: solid 1px; height: 200px; width: 80%; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
-
 
             <% String error = (String) request.getAttribute("error");
                 if (error != null) {%>
+        <div class="frames" id="error" >
             <H2>Error!!</h2>
             <p><%= error%>
+        </div>
                 <% }
                 %>
-
-        </div>
-
-
     </body>
 </html>

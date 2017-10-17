@@ -18,8 +18,40 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Show All Orders</title>
+        
+                <style>
+            body {
+                background-image: url(Pictures/pattern.png)
+            }
+            
+            .frames {
+                border: solid 2px;
+                border-color: goldenrod;
+                background-color: #FFFFFF;
+                margin-left: auto; 
+                margin-right: auto;
+                padding-top: 20px;
+
+            }
+            
+            #login {
+                height: 250px; 
+                width: 420px; 
+                margin-top: 40px;
+                padding-left: 30px;
+            }
+            
+            #error {
+                height: 150px; 
+                width: 420px; 
+                margin-top: 40px;
+                text-align: center;
+            }
+
+        </style>
+        
     </head>
-    <body style="background-image: url(Pictures/pattern.jpg)" > 
+    <body> 
         <%@ include file = "topmenu.jsp" %>
         <div style="border: solid 1px; width: 80%; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto; background-color: #FFFFFF">
 
