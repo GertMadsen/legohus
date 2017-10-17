@@ -1,19 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FunctionLayer;
 
 import java.util.Date;
 
 
 /**
- *
- * @author GertLehmann
+ * The purpose of Order is to store information about
+ * the different orders made by customers.
+ * 
+ * @author Gert Lehmann Madsen
  */
 public class Order {
 
+    private int id;
+    private final User user;
+    private final int length;
+    private final int width;
+    private final int height;
+    private Date date;
+    private Date shippingDate;
+    private boolean shipped;
+    
     public Order(User user, int length, int width, int height) {
         this.user = user;
         this.length = length;
@@ -34,16 +41,7 @@ public class Order {
         this.shippingDate = shippingDate;
         this.shipped = shipped;
     }
-
-    private int id;
-    private final User user;
-    private final int length;
-    private final int width;
-    private final int height;
-    private Date date;
-    private Date shippingDate;
-    private boolean shipped;
-    
+   
     public int getId() {
         return id;
     }

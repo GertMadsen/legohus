@@ -20,12 +20,12 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>View Pieces Used</title>
-        
-                <style>
+
+        <style>
             body {
                 background-image: url(Pictures/pattern.png)
             }
-            
+
             .frames {
                 border: solid 2px;
                 border-color: goldenrod;
@@ -35,7 +35,7 @@
                 padding-top: 20px;
 
             }
-            
+
             #pieces { 
                 width: 800px; 
                 margin-top: 40px;
@@ -44,9 +44,8 @@
                 padding-bottom: 20px;
             }
             
-
         </style>
-        
+
     </head>
     <body> 
         <%@ include file = "topmenu.jsp" %>
@@ -55,24 +54,25 @@
             int oid = (int) session.getAttribute("oid");
             Order order = user.getOrderFromMap(oid);
         %>
-        
+
         <div class="frames" id="pieces">
 
-        <h1>Pieces needed to build Lego house:</h1>
+            <h1>Pieces needed to build Lego house:</h1>
 
-        <table class="table table-center table-striped" id="ordertable">
-            <thead>
-                <tr>
-                    <th>Length</th>
-                    <th>Width</th>
-                    <th>Height</th>
-                    <th>4x2</th>
-                    <th>2x2</th>
-                    <th>1x2</th>
-                </tr>
-            </thead>
-            <%=Render.viewPieces(bricksUsed, order)%>
-        </table>
+            <table class="table table-center table-striped" id="ordertable">
+                <thead>
+                    <tr>
+                        <th>Length</th>
+                        <th>Width</th>
+                        <th>Height</th>
+                        <th>4x2</th>
+                        <th>2x2</th>
+                        <th>1x2</th>
+                        <th>Door/Window</th>
+                    </tr>
+                </thead>
+                <%=Render.viewPieces(bricksUsed, order)%>
+            </table>
         </div>
 
     </body>

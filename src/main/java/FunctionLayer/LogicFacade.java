@@ -36,7 +36,7 @@ public class LogicFacade {
 
     public static boolean validateDimensions(int length, int width, int height) {
         boolean result;
-        result = (height > 0) & (length > 4) & (width > 4);
+        result = (height > 0) & (length > 3) & (width > 3);
         return result;
     }
 

@@ -17,7 +17,6 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Customer home page</title>
-
         <style>
             body {
                 background-image: url(Pictures/pattern.png)
@@ -29,7 +28,6 @@
                 background-color: #FFFFFF;
                 margin-left: auto; 
                 margin-right: auto;
-                padding-top: 20px;
 
             }
 
@@ -39,8 +37,6 @@
                 margin-top: 40px;
                 padding-left: 20px;
             }
-
-
         </style>
 
     </head>
@@ -49,8 +45,34 @@
         <%@ include file = "topmenu.jsp" %>
 
         <div class="frames" id="customer">
-            <h1>Lego House</h1><br>
-            <img src="Pictures/bricks_1.jpg" alt=""/>
+            <div class="col-sm-12">
+                <h1>Lego House</h1><br>
+            </div>
+            <div class="col-sm-6">
+                <p>
+                    You can order lego bricks to build your own
+                    Lego house. The lenght and width of the house
+                    needs to be at least 4 dots or else it is  not 
+                    possible to construct the house<br><br>
+                    The house will be build by Lego bricks that 
+                    are either 4x2 dots, 2x2 dots or 2x1 dots and it 
+                    will be constructed so that the Lego bricks are 
+                    bonding.<br><br>
+                    If one of the sides in the house is 10 or more
+                    dots wide and the house is more than 6 bricks high
+                    a hole for a door (4 dots wide and 6 brick high) 
+                    and also a hole for a window (4 dots wide and 4 bricks high)
+                    will be added centered at the middle opposite to each other
+                    on the longest side of the house.
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <br><img src="Pictures/bricks.jpg" alt=""/>
+            </div>
+            <div class="col-sm-12">
+                <br>Press <b>'New House'</b> in the menu to order new house.
+                - Choose <b>'View Orders'</b> to view list of your previous orders
+            </div>
 
         </div>
 

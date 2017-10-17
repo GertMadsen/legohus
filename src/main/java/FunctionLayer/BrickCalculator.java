@@ -6,8 +6,11 @@
 package FunctionLayer;
 
 /**
- *
- * @author GertLehmann
+ * The purpose of BrickCalculater is to do the calculation
+ * needed when the customer wants to see which bricks
+ * is needed for a specific house to be constructed.
+ * 
+ * @author Gert Lehmann Madsen
  */
 public class BrickCalculator {
 
@@ -28,7 +31,10 @@ public class BrickCalculator {
                 one = ((l % 4) % 2) * 2 + ((w % 4) % 2) * 2;
                 bricksCalculated.addBricks(four, two, one);
         }
+        if ((length > 9 || width > 9) && height>6) {
+            bricksCalculated.addDoorAndWindow();
+        }
         return bricksCalculated;
     }
-
+    
 }

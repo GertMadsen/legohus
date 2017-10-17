@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DBAccess;
 
 import Exceptions.LegohusException;
@@ -119,23 +115,6 @@ public class OrderMapper {
             throw new LegohusException(ex.getMessage());
         }
     }
-
-    
-//    /**
-//     * This method is needed in order to convert a date from Java date format
-//     * into SQL datetime format
-//     * 
-//     * @param date is the java date to be converted
-//     * @return a string with the date in a format suitable for
-//     * being stored as a SQL datetime field 
-//     */
-//    
-//    private static String fromJavaToSQLDate(Date date) {
-//        java.text.SimpleDateFormat sdf
-//                = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        String currentTime = sdf.format(date);
-//        return currentTime;
-//    }
 
 
 }

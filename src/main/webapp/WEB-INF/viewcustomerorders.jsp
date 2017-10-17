@@ -18,12 +18,12 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Show Customer Orders</title>
-        
-                <style>
+
+        <style>
             body {
                 background-image: url(Pictures/pattern.png)
             }
-            
+
             .frames {
                 border: solid 2px;
                 border-color: goldenrod;
@@ -33,7 +33,7 @@
                 padding-top: 20px;
 
             }
-            
+
             #orders { 
                 width: 1000px; 
                 margin-top: 40px;
@@ -41,30 +41,28 @@
                 padding-right: 20px;
                 padding-bottom: 20px;
             }
-            
-
         </style>
-        
+
     </head>
     <body> 
         <%@ include file = "topmenu.jsp" %>
         <div class="frames" id="orders">
-        <h1>Orders</h1>
+            <h1>Your Orders:</h1>
 
-        <table class="table table-center table-striped" id="ordertable">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Length</th>
-                    <th>Width</th>
-                    <th>Height</th>
-                    <th>Date</th>
-                    <th>Shipped</th>
-                    <th>Pieces used</th>
-                </tr>
-            </thead>
-            <%=Render.viewUserOrders(user)%>
-        </table>
+            <table class="table table-center table-striped" id="ordertable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Length</th>
+                        <th>Width</th>
+                        <th>Height</th>
+                        <th>Date</th>
+                        <th>Shipped</th>
+                        <th>Brick List</th>
+                    </tr>
+                </thead>
+                <%=Render.viewUserOrders(user)%>
+            </table>
         </div>
 
     </body>

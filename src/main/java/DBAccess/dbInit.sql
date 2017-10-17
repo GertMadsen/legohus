@@ -1,3 +1,4 @@
+
 CREATE SCHEMA IF NOT EXISTS `lego` DEFAULT CHARACTER SET latin1 ;
 USE `lego` ;
 
@@ -20,8 +21,9 @@ CREATE TABLE IF NOT EXISTS `lego`.`orders` (
   `length` INT NOT NULL,
   `width` INT NOT NULL,
   `height` INT NOT NULL,
-  `date` DATETIME NOT NULL,
+  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `shipped` TINYINT NOT NULL,
+  `shipping_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`, `user_id`),
   INDEX `fk_order_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_order_user`
@@ -33,7 +35,10 @@ ENGINE = InnoDB;
 
 LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES 
-(1,'jens@somewhere.com','jensen','customer'),
-(2,'ken@somewhere.com','kensen','customer'),
-(3,'robin@somewhere.com','batman','employee');
+(1,'klods@hans.dk','klodset','customer'),
+(2,'house@keeper.com','shipper','employee');
 UNLOCK TABLES;
+
+
+
+

@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Exceptions;
 
 /**
- *
- * @author GertLehmann
+ * This exception is thrown when the customers
+ * inputs invalid data when ordering a new Lego house.
+ * 
+ * @author Gert Lehmann Madsen
  */
 public class InputException extends Exception {
 

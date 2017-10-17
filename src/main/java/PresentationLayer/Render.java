@@ -44,7 +44,7 @@ public class Render {
             output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
             output += "<input type=\"hidden\" name=\"command\" value=\"pieces\">";
             output += "<input type=\"hidden\" name=\"oid\" value=\"" + order.getId() + "\">";
-            output += "<input type=\"submit\" value=\"Show pieces used\">";
+            output += "<input type=\"submit\" value=\"Show Brick List\">";
             output += "</form></td>";
             
             output += "</tr>";
@@ -75,7 +75,7 @@ public class Render {
             output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
             output += "<input type=\"hidden\" name=\"command\" value=\"pieces\">";
             output += "<input type=\"hidden\" name=\"oid\" value=\"" + order.getId() + "\">";
-            output += "<input type=\"submit\" value=\"Show pieces used\">";
+            output += "<input type=\"submit\" value=\"Show Brick List\">";
             output += "</form></td>";
 
             output += "</tr>";
@@ -95,6 +95,11 @@ public class Render {
                     + "<td>" + bricksUsed.getFour() + "</td>"
                     + "<td>" + bricksUsed.getTwo() + "</td>"
                     + "<td>" + bricksUsed.getOne() + "</td>";
+            if (bricksUsed.isHoles()) {
+                output += "<td>Yes</td>";
+            } else {
+                output += "<td>No</td>";
+            }
             output += "</tr>";
         output += "</tbody>";
         return output;
