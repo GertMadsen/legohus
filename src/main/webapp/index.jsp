@@ -56,7 +56,7 @@
         <div class="frames" id="login" >
 
             <div class="col-sm-12">
-                <h1>Login/Register</h1><br>
+                <h1>Login or Registration:</h1><br>
             </div>
        
             <div class="col-sm-12">
