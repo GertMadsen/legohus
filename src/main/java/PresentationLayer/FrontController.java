@@ -14,8 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-
- @author kasper
+ * This is the Servlet controller for all jsp pages.
+ * It uses the Command sub classes to execute
+ * the different tasks needed in respons to the
+ * choices made by the users.
+ * 
+ * @author Gert Lehmann Madsen
  */
 @WebServlet( name = "FrontController", urlPatterns = { "/FrontController" } )
 public class FrontController extends HttpServlet {

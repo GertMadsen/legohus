@@ -28,13 +28,12 @@
                 background-color: #FFFFFF;
                 margin-left: auto; 
                 margin-right: auto;
-                padding-top: 20px;
-
+                
             }
 
             #login {
-                height: 250px; 
-                width: 420px; 
+                height: 350px; 
+                width: 600px; 
                 margin-top: 40px;
                 padding-left: 30px;
             }
@@ -44,6 +43,7 @@
                 width: 420px; 
                 margin-top: 40px;
                 text-align: center;
+                padding-top: 20px;
             }
 
         </style>
@@ -55,49 +55,62 @@
 
         <div class="frames" id="login" >
 
-            <table>
-                <thead>
+            <div class="col-sm-12">
+                <h1>Login/Register</h1><br>
+            </div>
+       
+            <div class="col-sm-12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Login</th>
+                            <th></th>
+                            <th>Register</th>
+
+                        </tr>
+                    </thead>
+
                     <tr>
-                        <th>Login</th>
-                        <th>Or Register</th>
-
+                        <td>
+                            <form name="login" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="login">
+                                Email:<br>
+                                <input type="email" name="email" value="john@doe.com">
+                                <br>
+                                Password:<br>
+                                <input type="password" name="password" value="sesam">
+                                <br><br>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </td>
+                        <td>
+                            <img src="Pictures/spacer.png" alt=""/>
+                        </td>
+                        <td>
+                            <form name="register" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="register">
+                                Email:<br>
+                                <input type="email" name="email" value="john@doe.com">
+                                <br>
+                                Password:<br>
+                                <input type="password" name="password1" value="sesam">
+                                <br>
+                                Retype Password:<br>
+                                <input type="password" name="password2" value="sesam">
+                                <br><br>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </td>
                     </tr>
-                </thead>
-
-                <tr>
-                    <td>
-                        <form name="login" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="login">
-                            Email:<br>
-                            <input type="email" name="email" value="john@doe.com">
-                            <br>
-                            Password:<br>
-                            <input type="password" name="password" value="sesam">
-                            <br><br>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </td>
-                    <td>
-                        <form name="register" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="register">
-                            Email:<br>
-                            <input type="email" name="email" value="john@doe.com">
-                            <br>
-                            Password:<br>
-                            <input type="password" name="password1" value="sesam">
-                            <br>
-                            Retype Password:<br>
-                            <input type="password" name="password2" value="sesam">
-                            <br><br>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </td>
-                </tr>
-            </table>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <br><b>Login</b> to enter site or <b>register</b> as customer by typing in your email and a password.
+            </div>
         </div>
 
         <% String error = (String) request.getAttribute("error");
-                if (error != null) {%>
+            if (error != null) {%>
         <div class="frames" id="error" >
             <H2>Error!!</h2>
             <p><%= error%>

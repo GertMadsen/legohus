@@ -38,6 +38,11 @@
                 padding-left: 20px;
             }
 
+            p {
+                text-align: justify;
+                font-style: oblique;
+            }
+
 
         </style>
 
@@ -65,7 +70,7 @@
                     When shipping an order a shipping date 
                     will be added to the order also available 
                     in the customers view.<br><br>
-                    
+
                 </p>
             </div>
             <div class="col-sm-8">
@@ -75,7 +80,7 @@
                 Choose <b>'View Orders'</b> to see all orders made by customers 
                 and to be able to manage the shipping status on orders.
             </div>
-            
+
 
 
         </div>

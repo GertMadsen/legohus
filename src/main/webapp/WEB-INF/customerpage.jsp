@@ -37,6 +37,11 @@
                 margin-top: 40px;
                 padding-left: 20px;
             }
+            
+            p {
+                text-align: justify;
+                font-style: oblique;
+            }
         </style>
 
     </head>
@@ -50,20 +55,20 @@
             </div>
             <div class="col-sm-6">
                 <p>
-                    You can order lego bricks to build your own
-                    Lego house. The lenght and width of the house
-                    needs to be at least 4 dots or else it is  not 
+                    You can order bricks and build your own
+                    Lego house. The length and width of the house
+                    has to be at least 4 dots or else it is  not 
                     possible to construct the house<br><br>
-                    The house will be build by Lego bricks that 
-                    are either 4x2 dots, 2x2 dots or 2x1 dots and it 
+                    The house will be build by using bricks that 
+                    are either 4x2 dots, 2x2 dots or 1x2 dots and it 
                     will be constructed so that the Lego bricks are 
                     bonding.<br><br>
                     If one of the sides in the house is 10 or more
-                    dots wide and the house is more than 6 bricks high
-                    a hole for a door (4 dots wide and 6 brick high) 
+                    dots wide and the house is more than 6 bricks high,
+                    then a hole for a door (4 dots wide and 6 brick high) 
                     and also a hole for a window (4 dots wide and 4 bricks high)
-                    will be added centered at the middle opposite to each other
-                    on the longest side of the house.
+                    will be added. They will be placed at the middle of the wall
+                    opposite to each other on the widest two sides of the house.
                 </p>
             </div>
             <div class="col-sm-6">

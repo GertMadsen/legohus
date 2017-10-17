@@ -15,13 +15,13 @@
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="home">
-                    <input type="submit" value="Home">
+                    <input style="font-weight: bold" type="submit" value="Home">
                 </form>
             </li>
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="view">
-                    <input type="submit" value="View Orders">
+                    <input style="font-weight: bold" type="submit" value="View Orders">
                 </form>
             </li>
             <% if (user.getRole().equals("customer")) { %>
@@ -29,7 +29,7 @@
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="house">
-                    <input type="submit" value="New House">
+                    <input style="font-weight: bold" type="submit" value="New House">
                 </form>
             </li>
             <% }
@@ -41,7 +41,7 @@
             <li class="navbar-text">
                 <form name="choice" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="logout">
-                    <input type="submit" value="Logout">
+                    <input style="font-weight: bold" type="submit" value="Logout">
                 </form>
             </li>
         </ul>
