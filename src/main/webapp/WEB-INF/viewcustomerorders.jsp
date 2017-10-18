@@ -37,6 +37,7 @@
             #orders { 
                 width: 1000px; 
                 margin-top: 40px;
+                margin-bottom: 40px;
                 padding-left: 20px;
                 padding-right: 20px;
                 padding-bottom: 20px;

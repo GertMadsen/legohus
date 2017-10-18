@@ -37,12 +37,13 @@
                 height: 400px; 
                 width: 640px; 
                 margin-top: 40px;
+                margin-bottom: 40px;
             }
 
             #error {
                 height: 100px; 
                 width: 420px; 
-                margin-top: 40px;
+                margin-bottom: 40px;
                 text-align: center;
             }
             

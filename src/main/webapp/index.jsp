@@ -35,6 +35,7 @@
                 height: 350px; 
                 width: 570px; 
                 margin-top: 40px;
+                margin-bottom: 40px;
                 padding-left: 30px;
                 padding-right: 30px;
             }
@@ -42,7 +43,7 @@
             #error {
                 height: 100px; 
                 width: 420px; 
-                margin-top: 40px;
+                margin-bottom: 40px;
                 text-align: center;
             }
             
