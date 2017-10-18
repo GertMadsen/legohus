@@ -29,27 +29,29 @@
                 background-color: #FFFFFF;
                 margin-left: auto; 
                 margin-right: auto;
-
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             #input {
-                height: 370px; 
+                height: 400px; 
                 width: 640px; 
                 margin-top: 40px;
             }
 
-            #leftside {
-                padding-left: 20px;
-            }
-
             #error {
-                padding-top: 20px;
-                height: 150px; 
+                height: 100px; 
                 width: 420px; 
                 margin-top: 40px;
                 text-align: center;
             }
-
+            
+            h1, p {
+                text-align: center;
+            }
+            p {
+                font-style: italic;
+            }
         </style>
 
     </head>
@@ -57,10 +59,10 @@
         <%@ include file = "topmenu.jsp" %>
         <div class="frames" id="input">
             <div class="col-sm-12">
-                <h1>Make new Order:</h1>
+                <h1>Submit Order:</h1>
             </div>
 
-            <div class="col-sm-5" id="leftside">
+            <div class="col-sm-4">
                 <table>
                     <tr>
                         <td>
@@ -82,11 +84,11 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <img src="Pictures/bricks_2.jpg" alt=""/>
             </div>
             <div class="col-sm-12">
-                <br><b>Remember:</b> Input data <b>need to be integers</b> and length and width has to be <b>at least 4 dots</b>.
+                <p><br><b>Remember:</b><br>Input data <b>need to be integers</b> and length and width has to be <b>at least 4 dots wide</b>.</p>
             </div>
 
         </div>

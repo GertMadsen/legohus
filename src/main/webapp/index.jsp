@@ -33,19 +33,22 @@
 
             #login {
                 height: 350px; 
-                width: 600px; 
+                width: 570px; 
                 margin-top: 40px;
                 padding-left: 30px;
+                padding-right: 30px;
             }
 
             #error {
-                height: 150px; 
+                height: 100px; 
                 width: 420px; 
                 margin-top: 40px;
                 text-align: center;
-                padding-top: 20px;
             }
-
+            
+            h1 {
+                text-align: center;
+            }
         </style>
 
     </head>
@@ -105,7 +108,7 @@
                 </table>
             </div>
             <div class="col-sm-12">
-                <br><b>Login</b> to enter site or <b>register</b> as customer by typing in your email and a password.
+                <br><b>Login</b> to enter site or <b>register</b> as customer with your email and a password.
             </div>
         </div>
 

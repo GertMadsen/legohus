@@ -32,7 +32,7 @@
             }
 
             #employee {
-                height: 460px; 
+                height: 450px; 
                 width: 800px; 
                 margin-top: 40px;
                 padding-left: 20px;
@@ -40,10 +40,12 @@
 
             p {
                 text-align: justify;
-                font-style: oblique;
+                font-style: italic;
             }
 
-
+            h1 {
+                text-align: center;
+            }
         </style>
 
     </head>
@@ -54,7 +56,7 @@
 
 
             <div class="col-sm-12">
-                <h1>Employee Page</h1><br>
+                <h1>Employee Page</h1>
             </div>
             <div class="col-sm-4">
                 <p>

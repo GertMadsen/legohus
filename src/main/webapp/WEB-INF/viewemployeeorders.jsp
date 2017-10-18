@@ -32,8 +32,6 @@
                 background-color: #FFFFFF;
                 margin-left: auto; 
                 margin-right: auto;
-                padding-top: 20px;
-
             }
 
             #orders { 

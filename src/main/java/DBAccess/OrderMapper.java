@@ -67,7 +67,7 @@ public class OrderMapper {
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
-                Date date = rs.getDate("date");
+                Date date = rs.getTimestamp("date");
                 Date shippingDate = rs.getDate("shipping_date");
                 boolean shipped = rs.getBoolean("shipped");
                 Order order = new Order(id, cust, length, width, height, date, shippingDate, shipped);
@@ -88,7 +88,7 @@ public class OrderMapper {
             ps.setInt(1, order.getId());
             ResultSet rs = ps.executeQuery();           
             while (rs.next()) {
-                Date date = rs.getDate("date");
+                Date date = rs.getTimestamp("date");
                 order.setDate(date);
             }
             return order;
@@ -106,7 +106,7 @@ public class OrderMapper {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();           
             while (rs.next()) {
-                shippingDate = rs.getDate("shipping_date");
+                shippingDate = rs.getTimestamp("shipping_date");
             }
             return shippingDate;
         } catch (ClassNotFoundException | SQLException ex) {

@@ -32,15 +32,20 @@
             }
 
             #customer {
-                height: 450px; 
+                height: 470px; 
                 width: 800px; 
                 margin-top: 40px;
                 padding-left: 20px;
+                padding-right: 20px;
             }
-            
+
             p {
                 text-align: justify;
-                font-style: oblique;
+                font-style: italic;
+            }
+            
+            h1 {
+                text-align: center;
             }
         </style>
 
@@ -51,7 +56,7 @@
 
         <div class="frames" id="customer">
             <div class="col-sm-12">
-                <h1>Lego House</h1><br>
+                <h1>Lego House:</h1><br>
             </div>
             <div class="col-sm-6">
                 <p>
