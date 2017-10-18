@@ -4,6 +4,7 @@ import Exceptions.LegohusException;
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 import Exceptions.WritingToSQLException;
+import java.util.Date;
 
 /**
  * The purpose of LogicFacade is to act as a facade
@@ -32,7 +33,8 @@ public class LogicFacade {
 
     public static void shipOrder(User user, int id) throws LegohusException {
         OrderMapper.setShipped(id);
-        user.updateOrderStatusInMap(id);
+        Date shippingDate = OrderMapper.getShippingDate(id);
+        user.updateOrderStatusInMap(id, shippingDate);
     }
     
     /**

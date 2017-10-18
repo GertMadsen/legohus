@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import java.util.Date;
 import java.util.TreeMap;
 
 /**
@@ -72,10 +73,11 @@ public class User {
      * shipped in this order to be the value true. 
      * @param id the order id for the order to be updated
      */
-    public void updateOrderStatusInMap(int id) {
+    public void updateOrderStatusInMap(int id, Date shippingDate) {
         String key = ""+id;
         Order order = this.orderMap.get(key);
         order.setShipped(true);
+        order.setShippingDate(shippingDate);
     }
    
     

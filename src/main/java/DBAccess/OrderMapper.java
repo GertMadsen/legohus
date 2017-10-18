@@ -83,21 +83,37 @@ public class OrderMapper {
         try {
             
             Connection con = Connector.connection();
-            String SQL = "SELECT date, shipping_date FROM orders WHERE id=?";
+            String SQL = "SELECT date FROM orders WHERE id=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, order.getId());
             ResultSet rs = ps.executeQuery();           
             while (rs.next()) {
                 Date date = rs.getDate("date");
-                Date shippingDate = rs.getDate("shipping_date");
                 order.setDate(date);
-                order.setShippingDate(shippingDate);
             }
             return order;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LegohusException(ex.getMessage());
         }
     }
+    
+    public static Date getShippingDate(int id) throws LegohusException {
+        try {
+            Date shippingDate = null;
+            Connection con = Connector.connection();
+            String SQL = "SELECT shipping_date FROM orders WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();           
+            while (rs.next()) {
+                shippingDate = rs.getDate("shipping_date");
+            }
+            return shippingDate;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LegohusException(ex.getMessage());
+        }
+    }
+
     
     
     public static void setShipped(int id) throws LegohusException {

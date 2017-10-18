@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `lego`.`orders` (
   `height` INT NOT NULL,
   `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `shipped` TINYINT NOT NULL,
-  `shipping_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `shipping_date` DATETIME,
   PRIMARY KEY (`id`, `user_id`),
   INDEX `fk_order_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_order_user`
