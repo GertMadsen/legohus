@@ -68,7 +68,7 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 Date date = rs.getTimestamp("date");
-                Date shippingDate = rs.getDate("shipping_date");
+                Date shippingDate = rs.getTimestamp("shipping_date");
                 boolean shipped = rs.getBoolean("shipped");
                 Order order = new Order(id, cust, length, width, height, date, shippingDate, shipped);
                 user.putToOrderMap(order);
