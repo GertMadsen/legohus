@@ -8,6 +8,7 @@ package PresentationLayer;
 import FunctionLayer.Bricks;
 import FunctionLayer.Order;
 import FunctionLayer.User;
+import java.text.SimpleDateFormat;
 import java.util.TreeMap;
 
 /**
@@ -16,23 +17,24 @@ import java.util.TreeMap;
  */
 public class Render {
 
+    private static SimpleDateFormat dt = new SimpleDateFormat("d. MMM yyyy - HH:mm");
+
     public static String viewAllOrders(User user) {
 
         String output = "<tbody>";
         TreeMap<String, Order> orderMap = user.getOrderMap();
 
         for (Order order : orderMap.values()) {
-
             output += "<tr>"
                     + "<td>" + order.getId() + "</td>"
                     + "<td>" + order.getUser().getEmail() + "</td>"
                     + "<td>" + order.getLength() + "</td>"
                     + "<td>" + order.getWidth() + "</td>"
                     + "<td>" + order.getHeight() + "</td>"
-                    + "<td>" + order.getDate() + "</td>";
+                    + "<td>" + dt.format(order.getDate()) + "</td>";
 
             if (order.isShipped()) {
-                output += "<td>Shipped : " + order.getShippingDate() + "</td>";
+                output += "<td>Shipped : " + dt.format(order.getShippingDate()) + "</td>";
             } else {
                 output += "<td><form name=\"order\" action=\"FrontController\" method=\"POST\">";
                 output += "<input type=\"hidden\" name=\"command\" value=\"ship\">";
@@ -65,9 +67,9 @@ public class Render {
                     + "<td>" + order.getLength() + "</td>"
                     + "<td>" + order.getWidth() + "</td>"
                     + "<td>" + order.getHeight() + "</td>"
-                    + "<td>" + order.getDate() + "</td>";
+                    + "<td>" + dt.format(order.getDate()) + "</td>";
             if (order.isShipped()) {
-                output += "<td>Shipped : " + order.getShippingDate() + "</td>";
+                output += "<td>Shipped : " + dt.format(order.getShippingDate()) + "</td>";
             } else {
                 output += "<td>Not Shipped Yet</td>";
             }
