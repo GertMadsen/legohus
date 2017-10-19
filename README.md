@@ -1,5 +1,4 @@
-# Legohus
-#
-# Kode til løsning af individuel opgave om lego hus.
-#
-# Gert Lehmann Madsen
+# Individuel opgave - Lego hus.
+# Datamatiker - 2. semester
+# Author: Gert Lehmann Madsen
+# Javadoc: https://gertmadsen.github.io/legohus/
