@@ -3,5 +3,6 @@
 # Author: Gert Lehmann Madsen
 # Javadoc: https://gertmadsen.github.io/legohus/
 #
-# customer: klods@hans.dk - klodset
-# employee: house@keeper.com - shipper
+# Test deployed: http://138.197.189.73/Legohus-1.0/
+# Customer: klods@hans.dk - klodset
+# Employee: house@keeper.com - shipper
