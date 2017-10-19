@@ -30,8 +30,6 @@ public class OrderMapper {
             ps.setInt(2, order.getLength());
             ps.setInt(3, order.getWidth());
             ps.setInt(4, order.getHeight());
-//            String dateStr = fromJavaToSQLDate(order.getDate());
-//            ps.setString(5, dateStr);
             ps.setBoolean(5, order.isShipped());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
@@ -44,41 +42,6 @@ public class OrderMapper {
         }
     }
     
-    
-    public static User getOrders(User user) throws LegohusException {
-        try {
-            Connection con = Connector.connection();
-            boolean isCustomer = user.getRole().equals("customer");
-            String SQL;
-            if (isCustomer) {
-                SQL = "SELECT * FROM orders WHERE user_id=?";
-            } else {
-                SQL = "SELECT * FROM orders";
-            }
-            PreparedStatement ps = con.prepareStatement(SQL);
-            if (isCustomer) { 
-                ps.setInt(1, user.getId());
-            }
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                int cust_id = rs.getInt("user_id");
-                User cust = UserMapper.getUser(cust_id);
-                int length = rs.getInt("length");
-                int width = rs.getInt("width");
-                int height = rs.getInt("height");
-                Date date = rs.getTimestamp("date");
-                Date shippingDate = rs.getTimestamp("shipping_date");
-                boolean shipped = rs.getBoolean("shipped");
-                Order order = new Order(id, cust, length, width, height, date, shippingDate, shipped);
-                user.putToOrderMap(order);
-            }
-            return user;
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new LegohusException(ex.getMessage());
-        }
-    }
-
     public static Order getOrderDate(Order order) throws LegohusException {
         try {
             
@@ -113,9 +76,7 @@ public class OrderMapper {
             throw new LegohusException(ex.getMessage());
         }
     }
-
-    
-    
+ 
     public static void setShipped(int id) throws LegohusException {
         try {
             Connection con = Connector.connection();

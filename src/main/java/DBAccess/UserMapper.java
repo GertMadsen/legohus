@@ -2,12 +2,14 @@ package DBAccess;
 
 import Exceptions.LegohusException;
 import Exceptions.WritingToSQLException;
+import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 /**
  * 
@@ -51,7 +53,7 @@ public class UserMapper {
                 int id = rs.getInt( "id" );
                 User user = new User( email, password, role );
                 user.setId( id );
-                OrderMapper.getOrders(user);
+                getOrders(user);
                 return user;
             } else {
                 throw new LegohusException( "Could not validate user" );
@@ -80,6 +82,40 @@ public class UserMapper {
                 throw new LegohusException( "User does not exist" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new LegohusException(ex.getMessage());
+        }
+    }   
+        
+    public static User getOrders(User user) throws LegohusException {
+        try {
+            Connection con = Connector.connection();
+            boolean isCustomer = user.getRole().equals("customer");
+            String SQL;
+            if (isCustomer) {
+                SQL = "SELECT * FROM orders WHERE user_id=?";
+            } else {
+                SQL = "SELECT * FROM orders";
+            }
+            PreparedStatement ps = con.prepareStatement(SQL);
+            if (isCustomer) { 
+                ps.setInt(1, user.getId());
+            }
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int cust_id = rs.getInt("user_id");
+                User customer = UserMapper.getUser(cust_id);
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                Date date = rs.getTimestamp("date");
+                Date shippingDate = rs.getTimestamp("shipping_date");
+                boolean shipped = rs.getBoolean("shipped");
+                Order order = new Order(id, customer, length, width, height, date, shippingDate, shipped);
+                user.putToOrderMap(order);
+            }
+            return user;
+        } catch (ClassNotFoundException | SQLException ex) {
             throw new LegohusException(ex.getMessage());
         }
     }
