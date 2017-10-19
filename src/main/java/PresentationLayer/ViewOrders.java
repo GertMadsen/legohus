@@ -5,17 +5,17 @@
  */
 package PresentationLayer;
 
-
-import FunctionLayer.Order;
 import FunctionLayer.User;
-import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author GertLehmann
+ * This Command subclass is used to forward the
+ * customer or employee to the view page for orders made
+ * when 'Show Orders' button is pressed in top menu.
+ * 
+ * @author Gert Lehmann Madsen
  */
 public class ViewOrders  extends Command {
 

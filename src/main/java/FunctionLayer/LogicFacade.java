@@ -7,7 +7,7 @@ import Exceptions.WritingToSQLException;
 import java.util.Date;
 
 /**
- * The purpose of LogicFacade is to act as a facade
+ * The purpose of LogicFacade is to provide a facade
  * between the Presentation layer and the other layers.
  *
  * @author Gert Lehmann Madsen

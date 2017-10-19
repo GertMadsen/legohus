@@ -8,13 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
  * The purpose of Login is to handle the different tasks when an user
  * submits a user login.
  *
  * @author Gert Lehmann Madsen
  */
-
 public class Login extends Command {
 
     /**
@@ -25,8 +23,9 @@ public class Login extends Command {
      *
      * @param request is a HttpServletRequest
      * @param response is a HttpServletResponse
-     * @return a jsp page name as a String
-     * @throws LegohusException
+     * @return combines the user role with the string 'page' to be used later 
+     * as a link to a jsp page.
+     * @throws LegohusException if a login in related error occurs.
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LegohusException {

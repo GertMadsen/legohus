@@ -5,9 +5,7 @@
  */
 package PresentationLayer;
 
-import Exceptions.InputException;
-import Exceptions.LegohusException;
-import Exceptions.WritingToSQLException;
+import Exceptions.*;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.User;
@@ -16,11 +14,28 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+ * The Input command class is used to handle the different 
+ * tasks when an user submits house dimensions.
  *
- * @author GertLehmann
+ * @author Gert Lehmann Madsen
  */
-public class InputDimensions extends Command {
+public class Input extends Command {
 
+    /**
+     * The length, width and height of the house ordered is retrieved
+     * from the request and parsed into integers if possible.
+     * The input is then validated using the validateDimensions method
+     * in the LogicFacade class.
+     * If the dimensions are valid and order is created and stored in
+     * the database using the createOrder method in the LogicFacade class.
+     * 
+     * @param request the HttpServletRequest
+     * @param response the HttpServletResponse
+     * @return a string use to create a link in the FrontController Servlet
+     * @throws LegohusException if an error occurs creating an order.
+     * @throws InputException if the input dimensions is not in a valid format.
+     * @throws WritingToSQLException if an error occur trying to write the order to the database.
+     */
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException, InputException, WritingToSQLException {
         int length, width, height;
@@ -42,6 +57,5 @@ public class InputDimensions extends Command {
             throw new InputException( "Not a valid input." );
         }
     }
-    
-    
+      
 }
